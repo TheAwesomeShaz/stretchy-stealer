@@ -16,11 +16,26 @@ public class Target : MonoBehaviour
     {
 
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Hand")
         {
-            gameController.GotTarget();
+            // gameController.GotTarget();
+            gameController.PullTarget();
+            if (Input.GetMouseButtonUp(0))
+            {
+                gameController.GotTarget();
+            }
+            // Debug.Log("STAYING TRIGGER");
+
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Hand")
+        {
+            gameController.canPullTarget = false;
+            gameController.ChangeRopeColor(1);
         }
     }
 }

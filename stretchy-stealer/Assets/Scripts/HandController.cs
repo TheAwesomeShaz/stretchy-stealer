@@ -22,12 +22,9 @@ public class HandController : MonoBehaviour
     {
         Vector3 direction = Vector3.zero;
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // mousePosition.z = 0;
-        if (Input.GetMouseButtonDown(0))
-        {
+        GetComponentInChildren<BoxCollider2D>().enabled = true;
 
-        }
-        if (Input.GetMouseButton(0)) // hold button
+        if (Input.GetMouseButton(0) && GameController.instance.canInteract) // hold button
         {
             direction = (mousePosition - transform.position);
             rb.velocity = direction.normalized * speed * Time.deltaTime;
@@ -40,6 +37,10 @@ public class HandController : MonoBehaviour
             {
                 RotateArmToMouse();
             }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            ResetRotation();
 
         }
 
