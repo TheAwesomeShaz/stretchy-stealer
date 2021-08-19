@@ -15,16 +15,16 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject target;
     [SerializeField] GameObject[] setInactiveStuff;
 
+    [SerializeField] GameObject levelWinConfetti;
+    [SerializeField] GameObject levelLosePanel;
+
     [SerializeField] SpriteRenderer handTargetSprite;
     SpriteRenderer playerSpriteRenderer;
     SpriteRenderer enemySpriteRenderer;
 
-
     [SerializeField] Material ropeNormalMaterial;
     [SerializeField] Material ropeSuccessMaterial;
     MeshRenderer ropeMeshRenderer;
-
-
 
     [SerializeField] Sprite idleSprite;
     [SerializeField] Sprite winSprite;
@@ -33,29 +33,33 @@ public class GameController : MonoBehaviour
     [SerializeField] Sprite enemyWinSprite;
     [SerializeField] Sprite enemyLoseSprite;
 
-
+    int currSceneIndex;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 2f;
-        FindObjectOfType<RopeTenser>().force = 200f;
-        canInteract = false;
+        FindObjectOfType<RopeTenser>().force = 50f;
 
         Invoke(nameof(NoStretch), 1f);
 
         canInteract = true;
         instance = this;
         handTargetSprite.enabled = false;
+        currSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
         ropeMeshRenderer = FindObjectOfType<RopeWrap>().gameObject.GetComponent<MeshRenderer>();
         playerSpriteRenderer = FindObjectOfType<Player2D>().GetComponent<SpriteRenderer>();
         enemySpriteRenderer = FindObjectOfType<Enemy2D>().GetComponent<SpriteRenderer>();
+
+        levelWinConfetti.SetActive(false);
+        levelLosePanel.SetActive(false);
     }
 
 
     void NoStretch()
     {
-        FindObjectOfType<ObiRope>().stretchingScale = 0;
+        FindObjectOfType<ObiRope>().stretchingScale = 0.1f;
         canInteract = true;
     }
 
@@ -66,9 +70,6 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
-
-
     }
 
 
@@ -82,7 +83,6 @@ public class GameController : MonoBehaviour
         {
             ropeMeshRenderer.material = ropeNormalMaterial;
         }
-
     }
 
 
@@ -127,6 +127,7 @@ public class GameController : MonoBehaviour
     {
         playerSpriteRenderer.sprite = winSprite;
         enemySpriteRenderer.sprite = enemyWinSprite;
+        Time.timeScale = 1f;
 
         target.SetActive(false);
 
@@ -134,6 +135,8 @@ public class GameController : MonoBehaviour
         {
             item.SetActive(false);
         }
+        Invoke(nameof(SetWinConfettiActive), .5f);
+        Invoke(nameof(RestartLevel), 2f);
 
     }
     public void LevelFail()
@@ -147,6 +150,36 @@ public class GameController : MonoBehaviour
         foreach (GameObject item in setInactiveStuff)
         {
             item.SetActive(false);
+        }
+        // Invoke(nameof(SetLosePanelActive), 1f);
+        Invoke(nameof(RestartLevel), 2f);
+
+    }
+
+    public void SetWinConfettiActive()
+    {
+        levelWinConfetti.SetActive(true);
+    }
+
+
+    public void SetLosePanelActive()
+    {
+        levelLosePanel.SetActive(true);
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(currSceneIndex);
+    }
+    public void LoadNextLevel()
+    {
+        if (currSceneIndex > 0 && currSceneIndex < 2)
+        {
+            SceneManager.LoadScene(currSceneIndex + 1);
+        }
+        if (currSceneIndex == 2)
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

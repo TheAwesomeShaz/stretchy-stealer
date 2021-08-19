@@ -27,7 +27,7 @@ namespace Obi
         public void DecreaseReferenceCount()
         {
             if (--refCount <= 0 && gameObject != null)
-                DestroyImmediate(gameObject);
+                Destroy(gameObject);
         }
 
         public void UpdateWorld(float deltaTime)
@@ -57,7 +57,7 @@ namespace Obi
 
         public void SetEdgeMeshData(ObiNativeEdgeMeshHeaderList headers, ObiNativeBIHNodeList nodes, ObiNativeEdgeList edges, ObiNativeVector2List vertices)
         {
-            Oni.SetEdgeMeshData(headers.GetIntPtr(), nodes.GetIntPtr(), edges.GetIntPtr(), vertices.GetIntPtr());   
+            Oni.SetEdgeMeshData(headers.GetIntPtr(), nodes.GetIntPtr(), edges.GetIntPtr(), vertices.GetIntPtr());
         }
 
         public void SetDistanceFieldData(ObiNativeDistanceFieldHeaderList headers, ObiNativeDFNodeList nodes)
