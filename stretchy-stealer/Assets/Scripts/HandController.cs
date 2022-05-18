@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class HandController : MonoBehaviour
 {
-    public float speed = 50;
+    public float speed = 1000;
     Rigidbody rb;
     private Camera.MonoOrStereoscopicEye hit;
 
@@ -15,6 +15,7 @@ public class HandController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         gameController = FindObjectOfType<GameController>();
+        speed = 10000;
     }
 
     // Update is called once per frame
@@ -24,7 +25,8 @@ public class HandController : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         GetComponentInChildren<BoxCollider2D>().enabled = true;
 
-        if (Input.GetMouseButton(0) && GameController.instance.canInteract) // hold button
+
+        if (Input.GetMouseButton(0) && GameController.instance.canInteractWithRope) // hold button
         {
             direction = (mousePosition - transform.position);
             rb.velocity = direction.normalized * speed * Time.deltaTime;

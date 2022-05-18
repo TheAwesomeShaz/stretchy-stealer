@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 114406566497706917}
   - component: {fileID: 114406566497706922}
   m_Layer: 0
-  m_Name: Ladoo
+  m_Name: TargetAcquired
   m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2086,7 +2086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5148bba008d0614cb0e9488879cdf46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3500
+  speed: 1000
 --- !u!1 &114406568432437165
 GameObject:
   m_ObjectHideFlags: 0

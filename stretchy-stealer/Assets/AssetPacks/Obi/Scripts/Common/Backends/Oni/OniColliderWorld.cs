@@ -27,7 +27,7 @@ namespace Obi
         public void DecreaseReferenceCount()
         {
             if (--refCount <= 0 && gameObject != null)
-                Destroy(gameObject);
+                DestroyImmediate(gameObject);
         }
 
         public void UpdateWorld(float deltaTime)

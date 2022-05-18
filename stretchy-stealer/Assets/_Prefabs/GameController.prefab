@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &643658674163374787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 643658674163374813}
+  - component: {fileID: 643658674163374786}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &643658674163374813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643658674163374787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.45, y: 3.5, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &643658674163374786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643658674163374787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac0dec2f028fda4d8c47ddf33cba513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelHasEnded: 0
+  gotTarget: 0
+  canInteractWithRope: 0
+  canPullTarget: 0
+  target: {fileID: 0}
+  setInactiveStuff:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  setInactiveStuffOnWin: []
+  levelWinConfetti: {fileID: 0}
+  englishText: {fileID: 0}
+  hindiText: {fileID: 0}
+  tamilText: {fileID: 0}
+  teluguText: {fileID: 0}
+  SettingsCanvas: {fileID: 0}
+  handTargetSprite: {fileID: 0}
+  ropeNormalMaterial: {fileID: 2100000, guid: 8044b87b89533e6479947f7f81fdbac7, type: 2}
+  ropeSuccessMaterial: {fileID: 2100000, guid: 3b9d39cbf318d054eb558b1a3e9d14fc, type: 2}
+  idleSprite:
+  - {fileID: 21300000, guid: ab3d261377cafab4fa72572482171c7f, type: 3}
+  - {fileID: 21300000, guid: fbc3f37283181c448891c129d7f72acd, type: 3}
+  - {fileID: 21300000, guid: c79bc3a99f8b0354a896049b8d4e7ea0, type: 3}
+  winSprite:
+  - {fileID: 21300000, guid: 2d170535559b4b343a71ee8a79fbb432, type: 3}
+  - {fileID: 21300000, guid: f03b60de7ca8271489904ed68c75e023, type: 3}
+  - {fileID: 21300000, guid: dd286ee9d4b85314f96a1da4a78b9f38, type: 3}
+  loseSprite:
+  - {fileID: 21300000, guid: f759e48596150644da75ca68256ede61, type: 3}
+  - {fileID: 21300000, guid: 4bb78c30101e1864d9a0885507761b40, type: 3}
+  - {fileID: 21300000, guid: 00e182e2180ad6a4280e9b45b15b68d6, type: 3}
+  enemyIdleSprite:
+  - {fileID: 21300000, guid: ec36d55a3bb5c3b4b8dee06eed6127c0, type: 3}
+  - {fileID: 21300000, guid: a777a9136dd352547bc61ecbb8004259, type: 3}
+  - {fileID: 21300000, guid: 0d68f04f2c5672b42ae785b82d316838, type: 3}
+  enemyWinSprite:
+  - {fileID: 21300000, guid: 0e504b10406bab64d81dcd05bf48bea7, type: 3}
+  - {fileID: 21300000, guid: 8f74bfed77647f8458ef3e0b59b3bb3e, type: 3}
+  - {fileID: 21300000, guid: 0d68f04f2c5672b42ae785b82d316838, type: 3}
+  enemyLoseSprite:
+  - {fileID: 21300000, guid: 92042ae1e33e6964db03675036ba5d65, type: 3}
+  - {fileID: 21300000, guid: 8e757aa970069cf40b59abb12a908a63, type: 3}
+  - {fileID: 21300000, guid: 0d68f04f2c5672b42ae785b82d316838, type: 3}
+  ropeStretchSFX: {fileID: 8300000, guid: f8ba1d97d8b0bfd4da69a0c181dc98d2, type: 3}
+  successSFX: {fileID: 8300000, guid: 2a7d521536795514e89dd5e3a4694d10, type: 3}
+  failSFX: {fileID: 8300000, guid: 50d66a931e4be6346809fccbbd268644, type: 3}
